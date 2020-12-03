@@ -1,0 +1,1 @@
+conan_cmake_run(REQUIRES gtest/1.10.0 BASIC_SETUP)
