@@ -2,7 +2,6 @@
 gtest/1.10.0
 
 [options]
-gtest:shared=True
 
 [generators]
 cmake
