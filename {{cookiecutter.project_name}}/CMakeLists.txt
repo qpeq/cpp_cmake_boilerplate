@@ -5,8 +5,8 @@ project({{cookiecutter.project_name}}
 	DESCRIPTION "{{cookiecutter.project_description}}"
     LANGUAGES CXX)
 
-include(cmake/conan_install.cmake)
-include(cmake/conan_package.cmake)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup(TARGETS)
 
 enable_testing()
 
