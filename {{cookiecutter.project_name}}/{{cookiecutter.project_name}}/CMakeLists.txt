@@ -12,4 +12,4 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE include)
-target_link_libraries(${PROJECT_NAME} ${CONAN_LIBS})
+# target_link_libraries(${PROJECT_NAME} CONAN_PKG::boost)
