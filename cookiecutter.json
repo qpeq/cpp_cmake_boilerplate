@@ -2,5 +2,7 @@
     "project_name": "HelloWorld",
     "project_description": "An awesome C++ project",
     "project_version": "0.1.0",
-    "cmake_minimal_version": 3.16
+    "cmake_minimal_version": 3.16,
+    "binary_type": ["exe", "static", "shared"],
+    "cpp_standard": "17"
 }

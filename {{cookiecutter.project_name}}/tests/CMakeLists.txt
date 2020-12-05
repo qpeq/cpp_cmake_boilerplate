@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION {{cookiecutter.cmake_minimal_version}})
 
 project(tests)
 
@@ -11,7 +11,7 @@ add_executable (${PROJECT_NAME}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    CXX_STANDARD 17
+    CXX_STANDARD {{cookiecutter.cpp_standard}}
     CXX_EXTENSIONS OFF
 )
 
