@@ -7,9 +7,11 @@ add_library(${PROJECT_NAME} STATIC
 {% elif cookiecutter.binary_type == "shared" -%}
 add_library(${PROJECT_NAME} SHARED 
 {% endif -%}
-    include/hello.h
-    source/hello.cpp
-    source/main.cpp
+    inc/hello.h
+    src/hello.cpp
+{% if cookiecutter.binary_type == "exe" -%}
+    src/main.cpp
+{% endif -%}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -17,5 +19,5 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_EXTENSIONS OFF
 )
 
-target_include_directories(${PROJECT_NAME} PRIVATE include)
+target_include_directories(${PROJECT_NAME} PRIVATE inc)
 # target_link_libraries(${PROJECT_NAME} PRIVATE ${CONAN_LIBS})
