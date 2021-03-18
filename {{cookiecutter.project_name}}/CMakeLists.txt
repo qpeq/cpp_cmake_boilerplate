@@ -11,4 +11,4 @@ conan_basic_setup(TARGETS)
 enable_testing()
 
 add_subdirectory({{cookiecutter.project_name}})
-add_subdirectory(tests)
+add_subdirectory(test_{{cookiecutter.project_name}})

@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION {{cookiecutter.cmake_minimal_version}})
 
-project(tests)
+project(test_{{cookiecutter.project_name}})
 
 link_directories(${CONAN_LIB_DIRS})
 
