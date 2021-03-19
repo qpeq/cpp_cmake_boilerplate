@@ -1,6 +1,6 @@
-#include "hello.hpp"
+#include "{{cookiecutter.project_name}}.hpp"
 
-void hello() {
+void {{cookiecutter.project_name}}() {
 }
 {% if cookiecutter.binary_type == "exe" %}
 int main() 

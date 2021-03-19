@@ -7,8 +7,8 @@ add_library(${PROJECT_NAME} STATIC
 {% elif cookiecutter.binary_type == "shared" %}
 add_library(${PROJECT_NAME} SHARED 
 {% endif %}
-    inc/hello.hpp
-    src/hello.cpp
+    inc/{{cookiecutter.project_name}}.hpp
+    src/{{cookiecutter.project_name}}.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -24,7 +24,7 @@ target_include_directories(${PROJECT_NAME}
 
 target_sources(${PROJECT_NAME}
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/src/hello.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/src/{{cookiecutter.project_name}}.cpp
     PUBLIC
-        ${CMAKE_CURRENT_SOURCE_DIR}/inc/hello.hpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/inc/{{cookiecutter.project_name}}.hpp
 )
