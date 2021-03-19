@@ -4,4 +4,4 @@ gtest/1.10.0
 [options]
 
 [generators]
-cmake
+cmake_find_package

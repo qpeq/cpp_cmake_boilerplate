@@ -5,10 +5,7 @@ project({{cookiecutter.project_name}}
 	DESCRIPTION "{{cookiecutter.project_description}}"
     LANGUAGES CXX)
 
-include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
-conan_basic_setup(TARGETS)
-
-enable_testing()
+include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/prefetch_conan.cmake)
 
 add_subdirectory({{cookiecutter.project_name}})
 add_subdirectory(test_{{cookiecutter.project_name}})

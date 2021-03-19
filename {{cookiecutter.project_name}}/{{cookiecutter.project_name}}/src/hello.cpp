@@ -1,6 +1,10 @@
-#include "hello.h"
-#include <iostream>
+#include "hello.hpp"
 
 void hello() {
-    std::cout << "Hello World" << std::endl;
 }
+{% if cookiecutter.binary_type == "exe" %}
+int main() 
+{
+    return 0;
+}
+{% endif %}
