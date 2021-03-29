@@ -5,6 +5,10 @@ project({{cookiecutter.project_name}}
 	DESCRIPTION "{{cookiecutter.project_description}}"
     LANGUAGES CXX)
 
+if(NOT CMAKE_BUILD_TYPE)
+    set(CMAKE_BUILD_TYPE "Debug")
+endif()
+
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/prefetch_conan.cmake)
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/include_submodules.cmake)
 
