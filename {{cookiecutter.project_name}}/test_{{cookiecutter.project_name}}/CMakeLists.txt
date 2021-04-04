@@ -28,16 +28,13 @@ target_link_directories(${PROJECT_NAME}
         ${GTest_LIB_DIRS}
 )
 
-if(NOT WIN32)
-    list(APPEND GTest_LIBRARY_LIST pthread)
-endif()
-
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
 {% if cookiecutter.binary_type != "exe" %}
         {{cookiecutter.project_name}}
 {% endif %}
         ${GTest_LIBRARY_LIST}
+        $<$<NOT:$<BOOL:${WIN32}>>:pthread>
 )
 
 enable_testing()
