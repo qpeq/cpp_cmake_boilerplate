@@ -3,6 +3,6 @@
     "project_description": "An awesome C++ project",
     "project_version": "0.1.0",
     "cmake_minimal_version": 3.16,
-    "binary_type": ["exe", "static", "shared"],
+    "binary_type": ["exe", "static", "shared", "header-only"],
     "cpp_standard": "17"
 }

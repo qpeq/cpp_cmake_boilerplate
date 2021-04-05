@@ -4,8 +4,11 @@ project(test_{{cookiecutter.project_name}})
 
 find_package(GTest REQUIRED)
 
-add_executable (${PROJECT_NAME} 
-    src/test_{{cookiecutter.project_name}}.cpp
+add_executable(${PROJECT_NAME})
+
+target_sources(${PROJECT_NAME} 
+    PRIVATE
+        src/test_{{cookiecutter.project_name}}.cpp
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES
@@ -30,9 +33,9 @@ target_link_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-{% if cookiecutter.binary_type != "exe" %}
+{%- if cookiecutter.binary_type != "exe" %}
         {{cookiecutter.project_name}}
-{% endif %}
+{%- endif %}
         ${GTest_LIBRARY_LIST}
         $<$<NOT:$<BOOL:${WIN32}>>:pthread>
 )
