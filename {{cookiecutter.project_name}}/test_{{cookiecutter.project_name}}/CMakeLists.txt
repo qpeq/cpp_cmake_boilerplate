@@ -40,6 +40,5 @@ target_link_libraries(${PROJECT_NAME}
         $<$<NOT:$<BOOL:${WIN32}>>:pthread>
 )
 
-enable_testing()
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
