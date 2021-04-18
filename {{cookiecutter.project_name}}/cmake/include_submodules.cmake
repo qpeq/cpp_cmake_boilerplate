@@ -1,5 +1,5 @@
 # Excerpted from: https://stackoverflow.com/questions/7787823/cmake-how-to-get-the-name-of-all-subdirectories-of-a-directory
-macro(GetSubmoduleList result curdir)
+macro(get_submodule_list result curdir)
     file(GLOB children RELATIVE ${curdir} ${curdir}/*)
     set(dirlist "")
     foreach(child ${children})
@@ -10,8 +10,9 @@ macro(GetSubmoduleList result curdir)
     set(${result} ${dirlist})
 endmacro()
 
-GetSubmoduleList(SUBMODULEDIRS ${CMAKE_CURRENT_SOURCE_DIR}/submodules)
-
-foreach(subdir ${SUBMODULEDIRS})
-    add_subdirectory(submodules/${subdir})
-endforeach()
+macro(add_submodules_in_directory dirname)
+    get_submodule_list(SUBMODULEDIRS ${CMAKE_CURRENT_SOURCE_DIR}/${dirname})
+    foreach(subdir ${SUBMODULEDIRS})
+        add_subdirectory(submodules/${subdir})
+    endforeach()
+endmacro()
