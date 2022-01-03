@@ -33,7 +33,7 @@ target_link_directories(${PROJECT_NAME}
 
 target_link_libraries(${PROJECT_NAME}
     PUBLIC
-{%- if cookiecutter.binary_type != "exe" %}
+{%- if cookiecutter.project_type != "exe" %}
         {{cookiecutter.project_name}}
 {%- endif %}
         ${GTest_LIBRARY_LIST}

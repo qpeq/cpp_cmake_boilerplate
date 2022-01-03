@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-{%- if cookiecutter.binary_type != "exe" %}
+{%- if cookiecutter.project_type != "exe" %}
 #include "{{cookiecutter.project_name}}.hpp"
 {%- endif %}
 
