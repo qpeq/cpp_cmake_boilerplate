@@ -2,7 +2,7 @@
 
 void {{cookiecutter.project_name}}() {
 }
-{% if cookiecutter.binary_type == "exe" %}
+{% if cookiecutter.project_type == "exe" %}
 int main() 
 {
     return 0;
