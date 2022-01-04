@@ -3,7 +3,8 @@
 ## Prerequisite
 
 1. cmake 3.16 or later
-2. [cookiecutter](https://github.com/cookiecutter/cookiecutter)
+2. [conan](https://github.com/conan-io/conan)
+3. [cookiecutter](https://github.com/cookiecutter/cookiecutter)
 
 
 ## Build and Run
