@@ -2,7 +2,11 @@ cmake_minimum_required(VERSION {{cookiecutter.cmake_minimal_version}})
 
 project(test_{{cookiecutter.project_name}})
 
+{%- if cookiecutter.testing_framework == "gtest"%}
 find_package(GTest REQUIRED)
+{%- else %}
+find_package(Catch2 REQUIRED)
+{%- endif %}
 
 add_executable(${PROJECT_NAME})
 
@@ -21,14 +25,20 @@ set_target_properties(${PROJECT_NAME} PROPERTIES
 
 target_include_directories(${PROJECT_NAME}
     PUBLIC
+{%- if cookiecutter.testing_framework == "gtest"%}
         ${GTest_INCLUDE_DIR}
+{%- else %}
+        ${Catch2_INCLUDE_DIR}
+{%- endif %}
         $<INSTALL_INTERFACE:inc>
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/inc>
 )
 
 target_link_directories(${PROJECT_NAME}
     PUBLIC
+{%- if cookiecutter.testing_framework == "gtest"%}
         ${GTest_LIB_DIRS}
+{%- endif %}
 )
 
 target_link_libraries(${PROJECT_NAME}
@@ -36,9 +46,20 @@ target_link_libraries(${PROJECT_NAME}
 {%- if cookiecutter.project_type != "exe" %}
         {{cookiecutter.project_name}}
 {%- endif %}
+{%- if cookiecutter.testing_framework == "gtest"%}
         ${GTest_LIBRARY_LIST}
+{%- endif %}
         $<$<NOT:$<BOOL:${WIN32}>>:pthread>
 )
 
+{%- if cookiecutter.testing_framework == "catch2"%}
+target_compile_definitions(${PROJECT_NAME} PRIVATE CATCH_CONFIG_MAIN)
+{%- endif %}
+
+{%- if cookiecutter.testing_framework == "gtest"%}
 include(GoogleTest)
 gtest_discover_tests(${PROJECT_NAME})
+{%- else %}
+include(Catch)
+catch_discover_tests(${PROJECT_NAME})
+{%- endif %}

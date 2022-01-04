@@ -1,5 +1,9 @@
 [requires]
+{%- if cookiecutter.testing_framework == "gtest"%}
 gtest/1.11.0
+{%- else %}
+catch2/2.11.1
+{%- endif %}
 
 [options]
 
