@@ -1,3 +1,3 @@
 #pragma once
 
-void hello();
+void {{cookiecutter.project_name}}();

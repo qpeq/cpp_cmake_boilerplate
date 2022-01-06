@@ -2,15 +2,15 @@ cmake_minimum_required(VERSION {{cookiecutter.cmake_minimal_version}})
 
 {% if cookiecutter.project_type == "exe" -%}
 add_executable(${PROJECT_NAME})
-{%- elif cookiecutter.project_type == "static" %}
+{% elif cookiecutter.project_type == "static" -%}
 add_library(${PROJECT_NAME} STATIC)
-{%- elif cookiecutter.project_type == "shared" %}
+{% elif cookiecutter.project_type == "shared" -%}
 add_library(${PROJECT_NAME} SHARED)
-{%- elif cookiecutter.project_type == "header-only" -%}
+{% elif cookiecutter.project_type == "header-only" -%}
 add_library(${PROJECT_NAME} INTERFACE)
 {%- endif %}
 
-{%- if cookiecutter.project_type != "header-only" %}
+{% if cookiecutter.project_type != "header-only" -%}
 set_target_properties(${PROJECT_NAME} PROPERTIES
     CXX_STANDARD {{cookiecutter.cpp_standard}}
     CXX_EXTENSIONS OFF
@@ -41,4 +41,4 @@ target_sources(${PROJECT_NAME}
     PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src/{{cookiecutter.project_name}}.cpp
 )
-{% endif %}
+{% endif -%}
