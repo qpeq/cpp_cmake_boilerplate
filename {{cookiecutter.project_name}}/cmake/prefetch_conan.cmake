@@ -18,4 +18,5 @@ conan_cmake_autodetect(settings)
 conan_cmake_install(PATH_OR_REFERENCE .
                     BUILD missing
                     REMOTE conancenter
-                    SETTINGS ${settings})
+                    SETTINGS ${settings}
+                    PROFILE ${CONAN_PROFILE})

@@ -9,6 +9,10 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "Debug")
 endif()
 
+if(NOT CONAN_PROFILE)
+    set(CONAN_PROFILE "default")
+endif()
+
 enable_testing()
 
 include(${CMAKE_CURRENT_SOURCE_DIR}/cmake/prefetch_conan.cmake)
